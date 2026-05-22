@@ -17,4 +17,12 @@ public class ProductEntity {
     private String description;
     private Double price;
 
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private CategoryEntity category;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "inventory_id", unique = true)
+    private ProductInventoryEntity inventory;
+
 }
